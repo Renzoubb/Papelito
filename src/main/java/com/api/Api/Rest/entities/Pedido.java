@@ -20,11 +20,7 @@ import java.util.List;
 @Getter
 @Setter
 @Audited
-public class Pedido implements Serializable {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Pedido extends Base {
 
     @Column(name="fecha")
     private Date fecha;

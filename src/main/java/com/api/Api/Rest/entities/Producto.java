@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.envers.Audited;
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -25,11 +26,9 @@ public class Producto extends Base {
     @Column(name="precioProducto")
     private float precioProducto;
 
-    @ManyToMany
-    @JoinTable(
-            name="productoCategoria",
-            joinColumns = @JoinColumn(name= "producto_id"),
-            inverseJoinColumns = @JoinColumn(name= "categoria_id")
-    )
-    private List<Categoria> categorias;
+
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "fk_categoria")
+    private Categoria fk_categoria;
+
 }
