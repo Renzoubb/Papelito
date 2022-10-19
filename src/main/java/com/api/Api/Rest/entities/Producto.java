@@ -1,13 +1,10 @@
 package com.api.Api.Rest.entities;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.envers.Audited;
-
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,11 +15,7 @@ import java.util.List;
 @Getter
 @Setter
 @Audited
-public class Producto implements Serializable {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Producto extends Base {
 
     @Column(name="nombreProducto")
     private String nombreProducto;
@@ -30,8 +23,12 @@ public class Producto implements Serializable {
     @Column(name="descripcionProducto")
     private String descripcionProducto;
 
-    /*Relacion bidireccional entre producto y detallePedido*/
-    @OneToMany(mappedBy = "producto", cascade =  CascadeType.ALL, orphanRemoval = true)
-    private List<DetallePedido> detallePedidoList = new ArrayList<DetallePedido>();
+    @Column(name="precioProducto")
+    private float precioProducto;
+
+
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "fk_categoria")
+    private Categoria fk_categoria;
 
 }
