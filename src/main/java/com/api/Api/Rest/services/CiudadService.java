@@ -10,7 +10,7 @@ import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
-@Service
+
 public interface CiudadService extends BaseService<Ciudad, Long>{
 
 }
