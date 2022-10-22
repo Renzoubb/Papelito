@@ -17,6 +17,7 @@ import javax.persistence.*;
 @Audited
 public class Domicilio extends Base{
 
+    //Atributos
     @Column(name = "nombreCalle")
     private String nombreCalle;
 
@@ -29,7 +30,7 @@ public class Domicilio extends Base{
     @Column(name = "piso")
     private String piso;
 
-
+    //Relacion
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "fk_ciudad")
     private Ciudad fk_ciudad;
