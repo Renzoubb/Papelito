@@ -3,6 +3,7 @@ package com.api.Api.Rest.controllers;
 import com.api.Api.Rest.entities.Ciudad;
 import com.api.Api.Rest.entities.Pedido;
 import com.api.Api.Rest.services.CiudadService;
+import com.api.Api.Rest.services.CiudadServiceImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,9 +11,12 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping(path = "api/v1/ciudades")
-public class CiudadController {
-    private CiudadService ciudadService;
+public class CiudadController extends BaseControllerImpl<Ciudad, CiudadServiceImpl> {
 
+
+
+    private CiudadService ciudadService;
+    /*
     public CiudadController(CiudadService ciudadService){this.ciudadService = ciudadService; }
 
     @GetMapping("")
@@ -59,5 +63,5 @@ public class CiudadController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("{\"error\":\"Error, Por favor, intente mas tarde.\"}");
         }
     }
-
+    */
 }
