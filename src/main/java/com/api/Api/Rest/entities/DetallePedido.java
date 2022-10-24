@@ -18,11 +18,7 @@ import java.util.Date;
 @Getter
 @Setter
 @Audited
-public class DetallePedido implements Serializable {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class DetallePedido extends Base {
 
     @Column(name="subtotal")
     private int subtotal;
