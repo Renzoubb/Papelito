@@ -34,6 +34,5 @@ public class Usuario extends Base {
     private Domicilio fk_domicilio;
 
     @OneToMany(mappedBy = "usuario")
-    @Builder.Default
     private List<Pedido> pedidos = new ArrayList<Pedido>();
 }
