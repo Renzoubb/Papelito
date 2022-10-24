@@ -33,4 +33,8 @@ public class Domicilio extends Base{
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "fk_ciudad")
     private Ciudad fk_ciudad;
+
+    //Mari
+    @OneToOne(mappedBy = "fk_domicilio")
+    private Usuario usuario;
 }

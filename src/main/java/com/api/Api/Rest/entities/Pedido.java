@@ -44,4 +44,9 @@ public class Pedido extends Base {
     /*Relacion bidireccional entre pedido y detallePedido*/
     @OneToMany(mappedBy = "pedido", cascade =  CascadeType.ALL, orphanRemoval = true)
     private List<PedidoEstado> pedidoEstadoList = new ArrayList<PedidoEstado>();
+
+    /*relaciono muchos pedidos con un usuario bidireccionalmente*/
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "fk_usuario")
+    private Usuario usuario;
 }
