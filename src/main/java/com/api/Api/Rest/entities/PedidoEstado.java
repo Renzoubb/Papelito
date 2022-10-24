@@ -18,10 +18,7 @@ import java.io.Serializable;
 @Getter
 @Setter
 @Audited
-public class PedidoEstado implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class PedidoEstado extends Base {
 
     @Column(name = "vigente")
     private boolean vigente;
