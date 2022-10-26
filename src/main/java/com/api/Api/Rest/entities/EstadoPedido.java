@@ -21,11 +21,7 @@ import java.util.List;
 @Getter
 @Setter
 @Audited
-public class EstadoPedido implements Serializable {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class EstadoPedido extends Base {
 
     @Column(name="nombreEstado")
     private String nombreEstado;
