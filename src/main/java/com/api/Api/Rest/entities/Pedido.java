@@ -26,7 +26,8 @@ public class Pedido extends Base {
     private Date fecha;
 
     @Column(name="total")
-    private int total;
+    private Float total;
+
 
     @Column(name="direccionEnvio")
     private String direccionEnvio;
@@ -46,7 +47,7 @@ public class Pedido extends Base {
     private List<PedidoEstado> pedidoEstadoList = new ArrayList<PedidoEstado>();
 
     /*relaciono muchos pedidos con un usuario bidireccionalmente*/
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(optional = false)
     @JoinColumn(name = "fk_usuario")
     private Usuario usuario;
 }
