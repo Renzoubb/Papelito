@@ -21,10 +21,10 @@ import java.util.Date;
 public class DetallePedido extends Base {
 
     @Column(name="subtotal")
-    private int subtotal;
+    private Float subtotal;
 
     @Column(name="cantidad")
-    private int cantidad;
+    private Integer cantidad;
 
     /*Relacion bidireccional entre pedido y detallePedido*/
     @ManyToOne(cascade = CascadeType.PERSIST)
