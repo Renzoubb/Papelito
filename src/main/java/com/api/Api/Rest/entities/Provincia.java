@@ -7,7 +7,6 @@ import lombok.Setter;
 import org.hibernate.envers.Audited;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +19,6 @@ import java.util.List;
 @Audited
 public class Provincia extends Base {
 
-    //Atributos. Extiende de base donde contiene el ID por eso no esta dentro de la clase
     @Column(name = "nombreProvincia")
     private String nombreProvincia;
 
