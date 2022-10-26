@@ -23,7 +23,7 @@ public class Usuario extends Base {
     @Column(name = "email")
     private String email;
 
-    @Column(name = "contraseña")
+    @Column(name = "contrasenia")
     private String contraseña;
 
     @Column(name = "celular")
