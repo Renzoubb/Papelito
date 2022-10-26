@@ -15,7 +15,7 @@ public class CiudadController extends BaseControllerImpl<Ciudad, CiudadServiceIm
 
 
 
-    private CiudadService ciudadService;
+   // private CiudadService ciudadService;
     /*
     public CiudadController(CiudadService ciudadService){this.ciudadService = ciudadService; }
 
