@@ -28,6 +28,7 @@ public class Pedido extends Base {
     @Column(name="total")
     private int total;
 
+
     @Column(name="direccionEnvio")
     private String direccionEnvio;
 
