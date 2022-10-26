@@ -1,7 +1,5 @@
 package com.api.Api.Rest.controllers;
-
 import com.api.Api.Rest.entities.Base;
-import com.api.Api.Rest.entities.Producto;
 import com.api.Api.Rest.services.BaseServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;

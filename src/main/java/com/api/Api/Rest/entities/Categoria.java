@@ -17,7 +17,7 @@ import java.util.List;
 @Getter
 @Setter
 @Audited
-public class Categoria extends Base {
+public class    Categoria extends Base {
 
     @Column(name="nombreCategoria")
     private String nombreCategoria;
