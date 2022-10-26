@@ -25,7 +25,7 @@ public abstract class BaseControllerImpl<E extends Base, S extends BaseServiceIm
     }
 
     @GetMapping("/paged")
-    public ResponseEntity<?> getAll(Pageable pageable){
+    public ResponseEntity<?> getAll(Pageable pageable) {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(servicio.findAll(pageable));
         } catch(Exception e) {
