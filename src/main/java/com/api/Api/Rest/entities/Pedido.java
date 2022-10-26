@@ -28,6 +28,7 @@ public class Pedido extends Base {
     @Column(name="total")
     private Float total;
 
+
     @Column(name="direccionEnvio")
     private String direccionEnvio;
 
