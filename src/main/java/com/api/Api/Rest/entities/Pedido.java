@@ -38,11 +38,11 @@ public class Pedido extends Base {
     /*@OneToMany(cascade =  CascadeType.ALL, orphanRemoval = true)
     private List<DetallePedido> detallePedidoList = new ArrayList<DetallePedido>();*/
 
-    /*Relacion bidireccional entre pedido y detallePedido*/
+    //Relacion bidireccional entre pedido y detallePedido
     @OneToMany(mappedBy = "pedido", cascade =  CascadeType.ALL, orphanRemoval = true)
     private List<DetallePedido> detallePedidoList = new ArrayList<DetallePedido>();
 
-    /*Relacion bidireccional entre pedido y detallePedido*/
+    ///*Relacion bidireccional entre pedido y detallePedido
     @OneToMany(mappedBy = "pedido", cascade =  CascadeType.ALL, orphanRemoval = true)
     private List<PedidoEstado> pedidoEstadoList = new ArrayList<PedidoEstado>();
 

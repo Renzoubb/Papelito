@@ -23,7 +23,7 @@ public class Provincia extends Base {
     private String nombreProvincia;
 
 
-  //  @OneToMany(mappedBy = "fk_provincia", cascade = CascadeType.ALL, orphanRemoval = true)
-   // private List<Ciudad> ciudadList = new ArrayList<Ciudad>();
+  /*  @OneToMany(mappedBy = "fk_provincia", cascade = CascadeType.ALL, orphanRemoval = true)
+      private List<Ciudad> ciudadList = new ArrayList<Ciudad>();*/
 
 }
