@@ -22,8 +22,8 @@ public class Categoria extends Base {
     @Column(name="nombreCategoria")
     private String nombreCategoria;
 
-    /*Relacion bidireccional entre estadoPedido y pedidoEstado*/
-    @OneToMany(mappedBy = "categoria", cascade =  CascadeType.ALL, orphanRemoval = true)
-    private List<Producto> productoList = new ArrayList<Producto>();
+    /*Relacion bidireccional entre estadoPedido y pedidoEstado
+    @OneToMany(mappedBy = "fk_categoria", cascade =  CascadeType.ALL, orphanRemoval = true)
+    private List<Producto> productoList = new ArrayList<Producto>();*/
 }
 

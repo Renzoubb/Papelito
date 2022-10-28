@@ -25,12 +25,13 @@ public class Ciudad extends Base{
     @Column(name = "codPostal")
     private int codPostal;
 
+    /*
     //relacion con domicilio
     @OneToMany(mappedBy = "fk_ciudad", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Domicilio> domicilioList = new ArrayList<Domicilio>();
+    private List<Domicilio> domicilioList = new ArrayList<Domicilio>();*/
 
     //Relacion con prov
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(optional = false)
     @JoinColumn(name = "fk_provincia")
     private Provincia fk_provincia;
 
