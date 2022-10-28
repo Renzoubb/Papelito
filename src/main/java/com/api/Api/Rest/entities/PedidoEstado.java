@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.envers.Audited;
 
 import javax.persistence.*;
@@ -24,12 +26,13 @@ public class PedidoEstado extends Base {
     private boolean vigente;
 
     /*Relacion bidireccional entre estadoPedido y pedidoEstado*/
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne()
     @JoinColumn(name = "fk_estado_pedido")
     private EstadoPedido estadoPedido;
 
     /*Relacion bidireccional entre pedido y pedidoEstado*/
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne()
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "fk_pedido")
     private Pedido pedido;
 }

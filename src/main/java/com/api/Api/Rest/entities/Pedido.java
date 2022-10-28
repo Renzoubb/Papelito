@@ -28,7 +28,6 @@ public class Pedido extends Base {
     @Column(name="total")
     private Float total;
 
-
     @Column(name="direccionEnvio")
     private String direccionEnvio;
 
@@ -38,13 +37,7 @@ public class Pedido extends Base {
     /*@OneToMany(cascade =  CascadeType.ALL, orphanRemoval = true)
     private List<DetallePedido> detallePedidoList = new ArrayList<DetallePedido>();*/
 
-    //Relacion bidireccional entre pedido y detallePedido
-    @OneToMany(mappedBy = "pedido", cascade =  CascadeType.ALL, orphanRemoval = true)
-    private List<DetallePedido> detallePedidoList = new ArrayList<DetallePedido>();
-
-    ///*Relacion bidireccional entre pedido y detallePedido
-    @OneToMany(mappedBy = "pedido", cascade =  CascadeType.ALL, orphanRemoval = true)
-    private List<PedidoEstado> pedidoEstadoList = new ArrayList<PedidoEstado>();
+    /*Relacion bidireccional entre pedido y detallePedido*/
 
     /*relaciono muchos pedidos con un usuario bidireccionalmente*/
     @ManyToOne(optional = false)

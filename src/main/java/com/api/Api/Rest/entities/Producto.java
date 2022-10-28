@@ -24,11 +24,10 @@ public class Producto extends Base {
     private String descripcionProducto;
 
     @Column(name="precioProducto")
-    private float precioProducto;
-
+    private Float precioProducto;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "fk_categoria")
-    private Categoria fk_categoria;
+    private Categoria categoria;
 
 }
