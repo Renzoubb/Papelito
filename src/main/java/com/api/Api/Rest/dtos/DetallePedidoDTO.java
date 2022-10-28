@@ -13,7 +13,10 @@ import lombok.Setter;
 public class DetallePedidoDTO {
     private Long id;
     private Float subtotal;
-    private int cantidad;
-    private ProductoDTO producto;
-
+    private Integer cantidad;
+    private Long idProducto;
+    private String nombreProducto;
+    private Float precioProducto;
+    private String nombreCategoria;
+    private Long idPedido;
 }

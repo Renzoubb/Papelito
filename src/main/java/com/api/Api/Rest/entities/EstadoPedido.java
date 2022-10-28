@@ -29,8 +29,4 @@ public class EstadoPedido extends Base {
     @Column(name="orden")
     private int orden;
 
-    /*Relacion bidireccional entre estadoPedido y pedidoEstado*/
-    @OneToMany(mappedBy = "estadoPedido", cascade =  CascadeType.ALL, orphanRemoval = true)
-    private List<PedidoEstado> pedidoEstadoList = new ArrayList<PedidoEstado>();
-
-}
+ }
