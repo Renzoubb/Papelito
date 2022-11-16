@@ -33,4 +33,8 @@ public interface ProductoRepository extends BaseRepository<Producto,Long> {
             nativeQuery = true
     )
     Page<Producto> ProductosPorNombre(@Param("nombre") String nombre, Pageable pageable);
+
+    List<Producto> findByDestacado(Boolean vigente);
+    List<Producto> findByOferta(Boolean vigente);
+
 }

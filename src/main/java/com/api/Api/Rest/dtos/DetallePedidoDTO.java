@@ -17,6 +17,7 @@ public class DetallePedidoDTO {
     private Long idProducto;
     private String nombreProducto;
     private Float precioProducto;
+    private String imageProducto;
     private String nombreCategoria;
     private Long idPedido;
 }

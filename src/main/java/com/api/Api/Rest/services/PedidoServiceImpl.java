@@ -157,6 +157,8 @@ public class PedidoServiceImpl extends BaseServiceImpl<Pedido, Long> implements 
         modelMapper.typeMap(DetallePedido.class, DetallePedidoDTO.class).addMappings(mapper -> {
             mapper.map(src -> src.getProducto().getNombreProducto(),
                     DetallePedidoDTO::setNombreProducto);
+            mapper.map(src -> src.getProducto().getImageProducto(),
+                    DetallePedidoDTO::setImageProducto);
             mapper.map(src -> src.getPedido().getId(),
                     DetallePedidoDTO::setIdPedido);
             mapper.map(src -> src.getProducto().getCategoria().getNombreCategoria(),
