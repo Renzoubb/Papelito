@@ -1,5 +1,6 @@
 package com.api.Api.Rest.services;
 
+import com.api.Api.Rest.entities.Producto;
 import com.api.Api.Rest.entities.Rol;
 import com.api.Api.Rest.entities.Usuario;
 
@@ -7,7 +8,6 @@ import java.util.List;
 
 
 public interface UsuarioService  {
-
     Usuario saveUsuario(Usuario usuario);
     Rol saveRol(Rol rol);
 

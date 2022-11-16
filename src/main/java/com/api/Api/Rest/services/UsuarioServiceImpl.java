@@ -43,20 +43,20 @@ public class UsuarioServiceImpl implements UsuarioService, UserDetailsService {
         });
         return new org.springframework.security.core.userdetails.User(usuario.getEmail(), usuario.getPassword(), authorities);
     }
-    @Override
+
     public Usuario saveUsuario(Usuario usuario) {
         log.info("Guardando un nuevo usuario en la base de datos");
         usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
         return usuarioRepository.save(usuario);
     }
 
-    @Override
+
     public Rol saveRol(Rol rol) {
         log.info("Guardando un nuevo rol en la base de datos " + rol.getName());
         return rolRepository.save(rol);
     }
 
-    @Override
+
     public void addRoleToUser(String email, String rolName) {
         log.info("Agregando rol {} a usuario {} ",rolName,email);
         Usuario usuario = usuarioRepository.findUsuario(email);
@@ -64,13 +64,13 @@ public class UsuarioServiceImpl implements UsuarioService, UserDetailsService {
         usuario.getRoles().add(rol);
     }
 
-    @Override
+
     public Usuario getUsuario(String email) {
         log.info("Trayendo usuario {}",email);
         return usuarioRepository.findUsuario(email);
     }
 
-    @Override
+
     public List<Usuario> getUsuarios() {
         log.info("Trayendo todos los usuarios");
         return usuarioRepository.findAll();

@@ -31,11 +31,13 @@ public class Domicilio extends Base{
     private String piso;
 
     //Relacion
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(optional = false)
     @JoinColumn(name = "fk_ciudad")
     private Ciudad fk_ciudad;
 
+    /*
     //Mari
     @OneToOne(mappedBy = "fk_domicilio")
     private Usuario usuario;
+    */
 }

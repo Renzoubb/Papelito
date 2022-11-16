@@ -37,6 +37,7 @@ public class Usuario extends Base {
     @JoinColumn(name = "fk_domicilio")
     private Domicilio fk_domicilio;
 
+    /*
     @OneToMany(mappedBy = "usuario")
-    private List<Pedido> pedidos = new ArrayList<Pedido>();
+    private List<Pedido> pedidos = new ArrayList<Pedido>();*/
 }

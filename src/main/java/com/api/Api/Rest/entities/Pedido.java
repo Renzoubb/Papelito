@@ -26,8 +26,7 @@ public class Pedido extends Base {
     private Date fecha;
 
     @Column(name="total")
-    private int total;
-
+    private Float total;
 
     @Column(name="direccionEnvio")
     private String direccionEnvio;
@@ -39,15 +38,9 @@ public class Pedido extends Base {
     private List<DetallePedido> detallePedidoList = new ArrayList<DetallePedido>();*/
 
     /*Relacion bidireccional entre pedido y detallePedido*/
-    @OneToMany(mappedBy = "pedido", cascade =  CascadeType.ALL, orphanRemoval = true)
-    private List<DetallePedido> detallePedidoList = new ArrayList<DetallePedido>();
-
-    /*Relacion bidireccional entre pedido y detallePedido*/
-    @OneToMany(mappedBy = "pedido", cascade =  CascadeType.ALL, orphanRemoval = true)
-    private List<PedidoEstado> pedidoEstadoList = new ArrayList<PedidoEstado>();
 
     /*relaciono muchos pedidos con un usuario bidireccionalmente*/
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(optional = false)
     @JoinColumn(name = "fk_usuario")
     private Usuario usuario;
 }
