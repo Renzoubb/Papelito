@@ -3,6 +3,7 @@ import lombok.*;
 import org.hibernate.envers.Audited;
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Entity
@@ -23,11 +24,14 @@ public class Usuario extends Base {
     @Column(name = "email")
     private String email;
 
-    @Column(name = "contrasenia")
-    private String contraseña;
+    @Column(name = "password")
+    private String password;
 
     @Column(name = "celular")
     private Long celular;
+
+    @ManyToMany(fetch= FetchType.EAGER)
+    private Collection<Rol> roles= new ArrayList<>();
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "fk_domicilio")

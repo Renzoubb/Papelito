@@ -1,81 +1,80 @@
 package com.api.Api.Rest.services;
-import com.api.Api.Rest.entities.Producto;
+import com.api.Api.Rest.entities.Rol;
 import com.api.Api.Rest.entities.Usuario;
-import com.api.Api.Rest.repositories.BaseRepository;
-import com.api.Api.Rest.repositories.ProductoRepository;
+import com.api.Api.Rest.repositories.RolRepository;
 import com.api.Api.Rest.repositories.UsuarioRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
-import java.util.Optional;
 
 
 @Service
-public class UsuarioServiceImpl extends BaseServiceImpl<Usuario, Long> implements UsuarioService {
+@RequiredArgsConstructor
+@Transactional
+@Slf4j
+public class UsuarioServiceImpl implements UsuarioService, UserDetailsService {
 
-    @Autowired
-    private UsuarioRepository usuarioRepository;
-    public UsuarioServiceImpl(BaseRepository<Usuario,Long> baseRepository){
-        super(baseRepository);
-    }
-
-    @Override
-    @Transactional
-    public List<Usuario> MostrarUsuarios() throws Exception{
-        try{
-            List<Usuario> usuarios = usuarioRepository.findAll();
-            return usuarios;
-        }catch (Exception e ){
-            throw new Exception(e.getMessage());
-        }
-    }
+    private final UsuarioRepository usuarioRepository;
+    private final RolRepository rolRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
-    @Transactional
-    public Usuario BuscarUsuarioPorId (Long id) throws Exception{
-        try{
-            Optional<Usuario> usuarioOptional = usuarioRepository.findById(id);
-            return usuarioOptional.get();
-        }catch (Exception e ){
-            throw new Exception(e.getMessage());
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        Usuario usuario = usuarioRepository.findUsuario(email);
+        if(usuario==null){
+            log.error("usuario no encontrado en la base de datos");
+            throw new UsernameNotFoundException("User not found in the database");
+        } else {
+            log.info("Usuario encontrado en la base de datos: {}", email);
         }
+        Collection<SimpleGrantedAuthority> authorities = new ArrayList<>();
+        usuario.getRoles().forEach(rol -> {
+            authorities.add(new SimpleGrantedAuthority(rol.getName()));
+        });
+        return new org.springframework.security.core.userdetails.User(usuario.getEmail(), usuario.getPassword(), authorities);
     }
-    @Override
-    @Transactional
-    public Usuario CreateUsuario(Usuario entity) throws Exception{
-        try{
-            entity = usuarioRepository.save(entity);
-            return entity;
-        }catch (Exception e ){
-            throw new Exception(e.getMessage());
-        }
+
+    public Usuario saveUsuario(Usuario usuario) {
+        log.info("Guardando un nuevo usuario en la base de datos");
+        usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
+        return usuarioRepository.save(usuario);
     }
-    @Override
-    @Transactional
-    public Usuario ActualizarUsuario(Long id, Usuario entity) throws Exception{
-        try{
-            Optional<Usuario> entityOptional = usuarioRepository.findById(id);
-            Usuario usuario = entityOptional.get();
-            usuario = usuarioRepository.save(entity);
-            return usuario;
-        }catch (Exception e ){
-            throw new Exception(e.getMessage());
-        }
+
+
+    public Rol saveRol(Rol rol) {
+        log.info("Guardando un nuevo rol en la base de datos " + rol.getName());
+        return rolRepository.save(rol);
     }
-    @Override
-    @Transactional
-    public boolean EliminarUsuario(Long id) throws Exception{
-        try{
-            if (usuarioRepository.existsById(id)){
-                usuarioRepository.deleteById(id);
-                return true;
-            } else {
-                throw new Exception();
-            }
-        }catch (Exception e ){
-            throw new Exception(e.getMessage());
-        }
+
+
+    public void addRoleToUser(String email, String rolName) {
+        log.info("Agregando rol {} a usuario {} ",rolName,email);
+        Usuario usuario = usuarioRepository.findUsuario(email);
+        Rol rol = rolRepository.findByName(rolName);
+        usuario.getRoles().add(rol);
     }
+
+
+    public Usuario getUsuario(String email) {
+        log.info("Trayendo usuario {}",email);
+        return usuarioRepository.findUsuario(email);
+    }
+
+
+    public List<Usuario> getUsuarios() {
+        log.info("Trayendo todos los usuarios");
+        return usuarioRepository.findAll();
+    }
+
+
 }
