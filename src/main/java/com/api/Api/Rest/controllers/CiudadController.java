@@ -12,5 +12,12 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(origins = "*")
 @RequestMapping(path = "api/v1/ciudades")
 public class CiudadController extends BaseControllerImpl<Ciudad, CiudadServiceImpl> {
-
+    @GetMapping("/byProvincia/{idProvincia}")
+    public ResponseEntity<?> getCiudadesByProvincia(@PathVariable Long idProvincia) {
+        try {
+            return ResponseEntity.status(HttpStatus.OK).body(servicio.getCiudadesByProvincia(idProvincia));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(("{\"error\":\""+e.getMessage()+"\"}"));
+        }
+    }
 }
