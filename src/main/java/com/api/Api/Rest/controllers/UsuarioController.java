@@ -26,6 +26,10 @@ public class UsuarioController {
         return ResponseEntity.ok().body(usuarioService.getUsuarios());
     }
 
+    @GetMapping("/usuarios/{id}")
+    public ResponseEntity<Usuario> getUser(@PathVariable Long id){
+        return ResponseEntity.ok().body(usuarioService.getUserById(id));
+    }
     @PostMapping("/usuarios/save")
     public ResponseEntity<Usuario> getUsuarios(@RequestBody Usuario usuario){
         URI uri =URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/user/save").toUriString());

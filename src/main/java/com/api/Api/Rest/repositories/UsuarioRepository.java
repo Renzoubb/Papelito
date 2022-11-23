@@ -15,5 +15,12 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
     )
     Usuario findUsuario(String email);
 
+    @Query(
+            value= "SELECT * FROM usuario WHERE id=:id",
+            nativeQuery = true
+    )
+    Usuario findUsuarioById(Long id);
+
+
 
 }
