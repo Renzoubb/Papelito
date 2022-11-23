@@ -5,7 +5,6 @@ import com.api.Api.Rest.entities.Usuario;
 import com.api.Api.Rest.services.UsuarioService;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -34,15 +33,7 @@ public class UsuarioController {
     @PostMapping("/usuarios/save")
     public ResponseEntity<Usuario> getUsuarios(@RequestBody Usuario usuario){
         URI uri =URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/user/save").toUriString());
-        HttpHeaders responseHeaders = new HttpHeaders();
-        responseHeaders.set("Access-Control-Allow-Origin", "*");
-        responseHeaders.set("Access-Control-Allow-Headers","origin, content-type, accept, authorization");
-        responseHeaders.set("Access-Control-Allow-Credentials", "true");
-
-        responseHeaders.set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, HEAD");
-
-        return ResponseEntity.created(uri).headers(responseHeaders)
-                .body(usuarioService.saveUsuario(usuario));
+        return ResponseEntity.created(uri).body(usuarioService.saveUsuario(usuario));
     }
     @PostMapping("/rol/save")
     public ResponseEntity<Rol> saveRol(@RequestBody Rol rol){
