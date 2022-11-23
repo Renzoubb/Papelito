@@ -19,21 +19,18 @@ public class ApiRestApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ApiRestApplication.class, args);
 	}
-
-
 	@Bean
 	PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
-
 	/*@Bean
 	CommandLineRunner run(UsuarioService usuarioService) {
 		return args -> {
 			usuarioService.saveRol(new Rol(null, "ROL_USUARIO"));
 			usuarioService.saveRol(new Rol(null, "ROL_ADMIN"));
 
-			usuarioService.saveUsuario(new Usuario("John","Trabalta","johntrabalta@gmail.com", "1234",null,new ArrayList<>(), null, new ArrayList<>()));
-			usuarioService.saveUsuario(new Usuario("Jim","Carrey","jimcarrey@gmail.com", "123456",null,new ArrayList<>(), null, new ArrayList<>()));
+			usuarioService.saveUsuario(new Usuario("John","Trabalta","johntrabalta@gmail.com", "1234",null,new ArrayList<>(), null));
+			usuarioService.saveUsuario(new Usuario("Jim","Carrey","jimcarrey@gmail.com", "123456",null,new ArrayList<>(), null));
 
 			usuarioService.addRoleToUser("johntrabalta@gmail.com","ROL_USUARIO");
 			usuarioService.addRoleToUser("jimcarrey@gmail.com","ROL_ADMIN");
