@@ -23,7 +23,8 @@ public class ApiRestApplication {
 	PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
-	/*@Bean
+
+	@Bean
 	CommandLineRunner run(UsuarioService usuarioService) {
 		return args -> {
 			usuarioService.saveRol(new Rol(null, "ROL_USUARIO"));
@@ -36,5 +37,5 @@ public class ApiRestApplication {
 			usuarioService.addRoleToUser("jimcarrey@gmail.com","ROL_ADMIN");
 
 		};
-	}*/
+	}
 }
