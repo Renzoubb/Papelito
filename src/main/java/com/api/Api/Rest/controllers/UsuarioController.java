@@ -31,7 +31,7 @@ public class UsuarioController {
         return ResponseEntity.ok().body(usuarioService.getUserById(id));
     }
 
-    @GetMapping("/usuarioByEmail")
+    @GetMapping("/usuarios/usuarioByEmail")
     public ResponseEntity<Usuario> getUserByEmail(@RequestParam String email){
         return ResponseEntity.ok().body(usuarioService.getUsuario(email));
     }
