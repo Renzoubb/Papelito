@@ -161,6 +161,8 @@ public class PedidoServiceImpl extends BaseServiceImpl<Pedido, Long> implements 
                     DetallePedidoDTO::setImageProducto);
             mapper.map(src -> src.getPedido().getId(),
                     DetallePedidoDTO::setIdPedido);
+            mapper.map(src -> src.getPedido().getUsuario().getId(),
+                    DetallePedidoDTO::setIdUsuario);
             mapper.map(src -> src.getProducto().getCategoria().getNombreCategoria(),
                     DetallePedidoDTO::setNombreCategoria);
             mapper.map(src -> src.getProducto().getId(),

@@ -20,4 +20,5 @@ public class DetallePedidoDTO {
     private String imageProducto;
     private String nombreCategoria;
     private Long idPedido;
+    private Long idUsuario;
 }
