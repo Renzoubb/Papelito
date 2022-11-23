@@ -22,7 +22,7 @@ public interface ProductoRepository extends BaseRepository<Producto,Long> {
 
     @Query(
             value= "SELECT * FROM producto WHERE fk_categoria=:categoria",
-            countQuery = "SELECT count(*) FROM producto" ,
+            countQuery = "SELECT count(*) FROM producto WHERE fk_categoria=:categoria" ,
             nativeQuery = true
     )
     Page<Producto> ProductosPorCategoriaPage(@Param("categoria") int categoria, Pageable pageable);
@@ -33,4 +33,8 @@ public interface ProductoRepository extends BaseRepository<Producto,Long> {
             nativeQuery = true
     )
     Page<Producto> ProductosPorNombre(@Param("nombre") String nombre, Pageable pageable);
+
+    List<Producto> findByDestacado(Boolean vigente);
+    List<Producto> findByOferta(Boolean vigente);
+
 }

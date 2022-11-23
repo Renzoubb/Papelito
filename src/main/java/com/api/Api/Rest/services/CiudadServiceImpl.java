@@ -17,5 +17,10 @@ public class CiudadServiceImpl extends BaseServiceImpl<Ciudad, Long> implements 
     public CiudadServiceImpl(BaseRepository<Ciudad,Long> baseRepository){
         super(baseRepository);
     }
+    @Override
+    public List<Ciudad> getCiudadesByProvincia(Long idProvincia) throws Exception {
 
+        List<Ciudad> ciudads = ciudadRepository.findAllByIdProvincia(idProvincia);
+        return ciudads;
+    }
 }
