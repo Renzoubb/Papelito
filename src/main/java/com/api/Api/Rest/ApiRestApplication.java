@@ -34,6 +34,7 @@ public class ApiRestApplication {
 	@Bean
 	CommandLineRunner run(UsuarioService usuarioService) {
 
+
 		return args -> {
 			usuarioService.saveRol(new Rol(null, "ROL_USUARIO"));
 			usuarioService.saveRol(new Rol(null, "ROL_ADMIN"));
