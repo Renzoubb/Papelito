@@ -69,6 +69,10 @@ public class UsuarioServiceImpl implements UsuarioService, UserDetailsService {
         log.info("Trayendo usuario {}",email);
         return usuarioRepository.findUsuario(email);
     }
+    public Usuario getUserById(Long id) {
+        log.info("Trayendo usuario {}",id);
+        return usuarioRepository.findUsuarioById(id);
+    }
 
 
     public List<Usuario> getUsuarios() {

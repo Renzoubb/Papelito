@@ -15,6 +15,8 @@ public interface UsuarioService  {
 
     Usuario getUsuario(String nombreUsuario);
 
+    Usuario getUserById(Long id);
+
     List<Usuario> getUsuarios();
 
 }
