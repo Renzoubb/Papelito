@@ -30,6 +30,11 @@ public class UsuarioController {
     public ResponseEntity<Usuario> getUser(@PathVariable Long id){
         return ResponseEntity.ok().body(usuarioService.getUserById(id));
     }
+
+    @GetMapping("/usuarioByEmail")
+    public ResponseEntity<Usuario> getUserByEmail(@RequestParam String email){
+        return ResponseEntity.ok().body(usuarioService.getUsuario(email));
+    }
     @PostMapping("/usuarios/save")
     public ResponseEntity<Usuario> getUsuarios(@RequestBody Usuario usuario){
         URI uri =URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/user/save").toUriString());
