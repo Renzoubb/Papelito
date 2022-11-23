@@ -32,7 +32,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         CustomAuthenticationFilter customAuthenticationFilter =  new CustomAuthenticationFilter(authenticationManagerBean());
         customAuthenticationFilter.setFilterProcessesUrl("/api/v1/login");
-        http.headers().httpStrictTransportSecurity().disable();
         http.cors().and().csrf().disable(); //con esto se deshabilita la falsificación de solicitudes entre sitios
         http.sessionManagement().sessionCreationPolicy(STATELESS); //politica de administración de sesiones
 
