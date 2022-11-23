@@ -36,7 +36,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers(HttpMethod.OPTIONS, "/*").permitAll()
+                .antMatchers(POST, "/*").permitAll()
                 .and()
                 .httpBasic(); //con esto se deshabilita la falsificación de solicitudes entre sitios
         http.sessionManagement().sessionCreationPolicy(STATELESS); //politica de administración de sesiones
