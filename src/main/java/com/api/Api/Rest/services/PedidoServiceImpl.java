@@ -142,7 +142,7 @@ public class PedidoServiceImpl extends BaseServiceImpl<Pedido, Long> implements 
             PedidoDTO pedidoDTO = modelMapper.map(pedido, PedidoDTO.class);
             pedidoDTO.setDetallePedido(detallePedidoDTOList);
             pedidoDTOS.add(pedidoDTO);
-
+            pedidoDTO.setIdUsuario(pedido.getUsuario().getId());
             PedidoEstado pedidoEstado = pedidoEstadoRepository.findPedidoEstadoVigente(pedido.getId());
             pedidoDTO.setNombreEstado(pedidoEstado.getEstadoPedido().getNombreEstado());
         }

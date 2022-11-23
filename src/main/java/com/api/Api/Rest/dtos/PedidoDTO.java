@@ -21,6 +21,7 @@ public class PedidoDTO {
     private String direccionEnvio;
     private List<DetallePedidoDTO> detallePedido;
     private String nombreEstado;
+    private Long idUsuario;
 
     public PedidoDTO() {
         detallePedido = new ArrayList<>();
