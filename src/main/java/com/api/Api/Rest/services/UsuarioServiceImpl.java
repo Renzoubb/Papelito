@@ -46,7 +46,7 @@ public class UsuarioServiceImpl implements UsuarioService, UserDetailsService {
 
     public Usuario saveUsuario(Usuario usuario) {
 
-        if(usuario.getId() == null && usuario.getPassword() == null){
+        if(usuario.getId() != null && usuario.getPassword() == null){
             Usuario usuario1 = usuarioRepository.findUsuarioById(usuario.getId());
             usuario.setPassword(usuario1.getPassword());
 
