@@ -23,7 +23,7 @@ public class ApiRestApplication {
 	PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
-/*
+
 	@Bean
 	CommandLineRunner run(UsuarioService usuarioService) {
 		return args -> {
@@ -37,5 +37,5 @@ public class ApiRestApplication {
 			usuarioService.addRoleToUser("jimcarrey@gmail.com","ROL_ADMIN");
 
 		};
-	}*/
+	}
 }
