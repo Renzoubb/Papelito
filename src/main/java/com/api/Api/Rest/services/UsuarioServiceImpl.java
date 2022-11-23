@@ -48,6 +48,7 @@ public class UsuarioServiceImpl implements UsuarioService, UserDetailsService {
 
         if(usuario.getId() != null && usuario.getPassword() == null){
             Usuario usuario1 = usuarioRepository.findUsuarioById(usuario.getId());
+
             usuario.setPassword(usuario1.getPassword());
 
         }else{
