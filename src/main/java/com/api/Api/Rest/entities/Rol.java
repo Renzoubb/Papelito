@@ -22,5 +22,4 @@ public class Rol {
     @GeneratedValue(strategy =AUTO)
     private Long id;
     private String name;
-
 }
