@@ -31,20 +31,20 @@ public class ApiRestApplication {
 		return new BCryptPasswordEncoder();
 	}
 
-	/*@Bean
+	@Bean
 	CommandLineRunner run(UsuarioService usuarioService) {
 		return args -> {
 			usuarioService.saveRol(new Rol(null, "ROL_USUARIO"));
 			usuarioService.saveRol(new Rol(null, "ROL_ADMIN"));
 
-			usuarioService.saveUsuario(new Usuario("John","Trabalta","johntrabalta@gmail.com", "1234",null,new ArrayList<>(), null, new ArrayList<>()));
-			usuarioService.saveUsuario(new Usuario("Jim","Carrey","jimcarrey@gmail.com", "123456",null,new ArrayList<>(), null, new ArrayList<>()));
+			usuarioService.saveUsuario(new Usuario("John","Trabalta","johntrabalta@gmail.com", "1234",null,new ArrayList<>(), null));
+			usuarioService.saveUsuario(new Usuario("Jim","Carrey","jimcarrey@gmail.com", "123456",null,new ArrayList<>(), null));
 
 			usuarioService.addRoleToUser("johntrabalta@gmail.com","ROL_USUARIO");
 			usuarioService.addRoleToUser("jimcarrey@gmail.com","ROL_ADMIN");
 
 		};
-	}*/
+	}
 	/*@Bean
 	public WebMvcConfigurer corsConfigurer() {
 		return new WebMvcConfigurerAdapter() {
