@@ -45,9 +45,17 @@ public class UsuarioServiceImpl implements UsuarioService, UserDetailsService {
     }
 
     public Usuario saveUsuario(Usuario usuario) {
-        log.info("Guardando un nuevo usuario en la base de datos");
-        usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
+
+        if(usuario.getId() == null && usuario.getPassword() == null){
+            Usuario usuario1 = usuarioRepository.findUsuarioById(usuario.getId());
+            usuario.setPassword(usuario1.getPassword());
+
+        }else{
+            log.info("Guardando un nuevo usuario en la base de datos");
+            usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
+        }
         return usuarioRepository.save(usuario);
+
     }
 
 
