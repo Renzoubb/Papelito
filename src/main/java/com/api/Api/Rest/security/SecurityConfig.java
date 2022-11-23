@@ -32,7 +32,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         CustomAuthenticationFilter customAuthenticationFilter =  new CustomAuthenticationFilter(authenticationManagerBean());
         customAuthenticationFilter.setFilterProcessesUrl("/api/v1/login");
-        http.csrf().disable(); //con esto se deshabilita la falsificación de solicitudes entre sitios
+        http.cors().and().csrf().disable(); //con esto se deshabilita la falsificación de solicitudes entre sitios
         http.sessionManagement().sessionCreationPolicy(STATELESS); //politica de administración de sesiones
 
         http.authorizeRequests().antMatchers(POST,"/api/v1/login").permitAll();
@@ -40,15 +40,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers(GET,"/api/v1/productos/**").permitAll();
         http.authorizeRequests().antMatchers(GET,"/api/v1/ciudades/**").permitAll();
         http.authorizeRequests().antMatchers(GET,"/api/v1/categorias/**").permitAll();
-        http.authorizeRequests().antMatchers(POST,"/api/v1/usuarios/save").hasAnyAuthority("ROL_USER","ROL_ADMIN");
-        http.authorizeRequests().antMatchers(GET,"/api/v1/usuarios/**").hasAnyAuthority("ROL_USER","ROL_ADMIN");
-        http.authorizeRequests().antMatchers(POST,"/api/v1/rol/save").hasAnyAuthority("ROL_ADMIN");
+        http.authorizeRequests().antMatchers(POST,"/api/v1/usuarios/**").permitAll();
+        http.authorizeRequests().antMatchers(GET,"/api/v1/usuarios/**").hasAnyAuthority("ROL_USER");
         http.authorizeRequests().antMatchers(POST,"/api/v1/rol/save").hasAnyAuthority("ROL_ADMIN");
         http.authorizeRequests().antMatchers(POST,"/api/v1/rol/addtouser").hasAnyAuthority("ROL_ADMIN");
         http.authorizeRequests().antMatchers(POST,"/api/v1/rol/addtouser").hasAnyAuthority("ROL_ADMIN");
         http.authorizeRequests().antMatchers(POST,"/api/v1/pedidos/create-pedido").hasAnyAuthority("ROL_USER");
         http.authorizeRequests().antMatchers(GET,"/api/v1/pedidos/detalle/**").hasAnyAuthority("ROL_USER");
-        http.authorizeRequests().antMatchers(GET,"/api/v1/pedidos/detalle").hasAnyAuthority("ROL_ADMIN");
+        
+
+        http.authorizeRequests().antMatchers(GET,"/api/v1/pedidos/detalle").hasAnyAuthority("ROL_USER");
+
+
         http.authorizeRequests().anyRequest().authenticated();
         http.addFilter(customAuthenticationFilter); //filtro para authenticar a los usuarios
         http.addFilterBefore(new CustomAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);
