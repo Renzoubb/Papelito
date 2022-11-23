@@ -24,6 +24,7 @@ public class ApiRestApplication {
 		return new BCryptPasswordEncoder();
 	}
 
+
 	@Bean
 	CommandLineRunner run(UsuarioService usuarioService) {
 		return args -> {
