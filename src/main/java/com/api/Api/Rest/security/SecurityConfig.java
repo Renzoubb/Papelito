@@ -36,7 +36,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.cors().and().csrf().disable(); //con esto se deshabilita la falsificación de solicitudes entre sitios
         http.sessionManagement().sessionCreationPolicy(STATELESS); //politica de administración de sesiones
 
-        http.authorizeRequests().antMatchers("api/v1/login/**").permitAll();
+        http.authorizeRequests().antMatchers(POST,"/api/v1/login").permitAll();
 
         http.authorizeRequests().antMatchers(GET,"/api/v1/productos/**").permitAll();
         http.authorizeRequests().antMatchers(GET,"/api/v1/ciudades/**").permitAll();
@@ -48,7 +48,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers(POST,"/api/v1/rol/addtouser").hasAnyAuthority("ROL_ADMIN");
         http.authorizeRequests().antMatchers(POST,"/api/v1/pedidos/create-pedido").hasAnyAuthority("ROL_USER");
         http.authorizeRequests().antMatchers(GET,"/api/v1/pedidos/detalle/**").hasAnyAuthority("ROL_USER");
+        
+
         http.authorizeRequests().antMatchers(GET,"/api/v1/pedidos/detalle").hasAnyAuthority("ROL_USER");
+
 
         http.authorizeRequests().anyRequest().authenticated();
         http.addFilter(customAuthenticationFilter); //filtro para authenticar a los usuarios
