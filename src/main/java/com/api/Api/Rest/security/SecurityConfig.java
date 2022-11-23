@@ -45,7 +45,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers(POST,"/api/v1/rol/save").hasAnyAuthority("ROL_ADMIN");
         http.authorizeRequests().antMatchers(POST,"/api/v1/rol/save").hasAnyAuthority("ROL_ADMIN");
         http.authorizeRequests().antMatchers(POST,"/api/v1/rol/addtouser").hasAnyAuthority("ROL_ADMIN");
-        http.authorizeRequests().antMatchers(POST,"/api/v1/rol/addtouser").hasAnyAuthority("ROL_ADMIN");
         http.authorizeRequests().antMatchers(POST,"/api/v1/pedidos/create-pedido").hasAnyAuthority("ROL_USUARIO");
         http.authorizeRequests().antMatchers(GET,"/api/v1/pedidos/detalle/**").hasAnyAuthority("ROL_USUARIO");
         http.authorizeRequests().antMatchers(GET,"/api/v1/pedidos/detalle").hasAnyAuthority("ROL_ADMIN");

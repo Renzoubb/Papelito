@@ -6,6 +6,7 @@ import com.api.Api.Rest.services.UsuarioService;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -20,6 +21,12 @@ import java.util.List;
 public class UsuarioController {
 
     private final UsuarioService usuarioService;
+
+    @Data
+    class RolToUserForm {
+        private String email;
+        private String rolName;
+    }
 
     @GetMapping("/usuarios")
     public ResponseEntity<List<Usuario>> getUsuarios(){
@@ -46,15 +53,11 @@ public class UsuarioController {
         return ResponseEntity.created(uri).body(usuarioService.saveRol(rol));
     }
 
-    @PostMapping("/rol/addtouser")
-    public ResponseEntity<?> addRolToUser(@RequestBody RolToUserForm form){
+    @PostMapping(value = "/rol/addtouser", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+    public ResponseEntity<?> addRolToUser(RolToUserForm form){
         usuarioService.addRoleToUser(form.getEmail(),form.getRolName());
         return ResponseEntity.ok().build();
     }
 
-    @Data
-    class RolToUserForm {
-        private String email;
-        private String rolName;
-    }
+
 }
