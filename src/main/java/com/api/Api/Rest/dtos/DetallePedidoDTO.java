@@ -21,4 +21,5 @@ public class DetallePedidoDTO {
     private String nombreCategoria;
     private Long idPedido;
     private Long idUsuario;
+
 }
