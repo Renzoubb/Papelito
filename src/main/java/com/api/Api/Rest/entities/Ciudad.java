@@ -23,7 +23,7 @@ public class Ciudad extends Base{
     private String nombreCiudad;
 
     @Column(name = "codPostal")
-    private int codPostal;
+    private Integer codPostal;
 
     /*
     //relacion con domicilio
