@@ -1,8 +1,10 @@
 # <Papelito>
+  
+  ![—Pngtree—vector continuous line drawing of_5046973 (2)](https://user-images.githubusercontent.com/40520437/204394280-8d0cbef0-b86f-44d4-a9ed-e8cfb1937a3d.png)
 
 ## Descripción
 
-Nuestro ecommerce es una librería que ofrece articulos de libreria escolares, de oficina, arte y tecnicos.
+Nuestro ecommerce es una librería que ofrece articulos de libreria escolares, de oficina, arte y técnicos.
 
 
 ## Público objetivo
@@ -13,7 +15,7 @@ Cualquier persona interesada podrá acceder a comprar cualquiera de los articulo
 -https://einsteinlibreria.com.ar/
 -https://www.dafiti.com.ar/
 
-## Tecnologias Backend
+## Tecnologías Backend
 
 - Java 11
 - Spring Boot
@@ -24,7 +26,7 @@ Cualquier persona interesada podrá acceder a comprar cualquiera de los articulo
 - MySQL
 - ModelMapper
 
-## Tecnologias Frontend
+## Tecnologías Frontend
 
 - JavaScript
 - React 18
