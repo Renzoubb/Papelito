@@ -1,6 +1,20 @@
 # <Papelito>
   
-  ![—Pngtree—vector continuous line drawing of_5046973 (2)](https://user-images.githubusercontent.com/40520437/204394280-8d0cbef0-b86f-44d4-a9ed-e8cfb1937a3d.png)
+  
+  
+  <div align="center">
+  <a href="https://user-images.githubusercontent.com/40520437/204394280-8d0cbef0-b86f-44d4-a9ed-e8cfb1937a3d.png">
+    <img src="https://i.imgur.com/elFRgCZ.png" alt="Logo" width="150" height="150">
+  </a>
+
+  <h1 align="center">Papelito</h1>
+
+  <p align="center">
+    Grupo: Hasta la última línea
+  </p>
+</div>
+  
+  
 
 ## Descripción
 
