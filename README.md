@@ -38,17 +38,17 @@ Cualquier persona interesada podrá acceder a comprar cualquiera de los articulo
 
 ## Links de interés
 
-Repositorio Proyecto E-commerce Papelito Back-End
+- Repositorio Proyecto E-commerce Papelito Back-End
 https://github.com/Renzoubb/Papelito
 
-Repositorio Proyecto E-commerce Papelito Front-End
+- Repositorio Proyecto E-commerce Papelito Front-End
 https://github.com/pao95/PapelitoFrontend
 
-Video explicación Fron-End
+- Video explicación Fron-End
 https://www.youtube.com/watch?v=Pfj4gCi7ugA
 
-Video explicación Back-End
+- Video explicación Back-End
 https://youtu.be/FCHJ08JHAVQ
 
-Aplicacion desplegada
+- Aplicacion desplegada
 https://scintillating-malabi-76e3d4.netlify.app/home
