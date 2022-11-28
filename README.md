@@ -1,10 +1,8 @@
 # <Papelito>
   
-  
-  
   <div align="center">
-  <a href="https://user-images.githubusercontent.com/40520437/204394280-8d0cbef0-b86f-44d4-a9ed-e8cfb1937a3d.png">
-    <img src="https://i.imgur.com/elFRgCZ.png" alt="Logo" width="150" height="150">
+  <a href="https://user-images.githubusercontent.com/40520437/204394759-359d02b6-6799-4286-8a38-e40698de4fa6.png">
+    <img src="https://user-images.githubusercontent.com/40520437/204394759-359d02b6-6799-4286-8a38-e40698de4fa6.png" alt="Logo" width="150" height="150">
   </a>
 
   <h1 align="center">Papelito</h1>
