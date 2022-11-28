@@ -58,11 +58,11 @@ https://github.com/Renzoubb/Papelito
 - Repositorio Proyecto E-commerce Papelito Front-End
 https://github.com/pao95/PapelitoFrontend
 
-- Video explicación Fron-End
+- Video explicación Front-End
 https://www.youtube.com/watch?v=Pfj4gCi7ugA
 
 - Video explicación Back-End
 https://youtu.be/FCHJ08JHAVQ
 
-- Aplicacion desplegada
+- Aplicación desplegada
 https://scintillating-malabi-76e3d4.netlify.app/home
